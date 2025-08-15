@@ -1,0 +1,1 @@
+# Ce fichier est vide car aucune dépendance externe n'est utilisée

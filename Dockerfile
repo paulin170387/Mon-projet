@@ -5,10 +5,10 @@ FROM python:3.9-slim
 WORKDIR /uts
 
 # Copie le fichier de dépendances
-COPY requirements.txt .
+#COPY requirements.txt .
 
 # Installe les dépendances (si vous en avez)
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 # Copie le script Python dans le conteneur
 COPY code.py .

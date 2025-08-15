@@ -11,7 +11,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copie le script Python dans le conteneur
-COPY app.py .
+COPY code.py .
 
 # Commande pour exécuter le script au démarrage du conteneur
 CMD ["python", "app.py"]

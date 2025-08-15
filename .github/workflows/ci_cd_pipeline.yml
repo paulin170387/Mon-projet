@@ -33,7 +33,22 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/uts:latest
-        
+
+    # Sécurité: contrôler que tous les secrets sont présents (optionnel mais conseillé)
+    - name: Vérifier les secrets nécessaires
+      run: |
+        [[ -z "${{ secrets.DOCKERHUB_USERNAME }}" ]] && echo "DOCKERHUB_USERNAME manquant" && exit 1
+        [[ -z "${{ secrets.DOCKERHUB_TOKEN }}" ]] && echo "DOCKERHUB_TOKEN manquant" && exit 1
+        [[ -z "${{ secrets.COSIGN_PRIVATE_KEY }}" ]] && echo "COSIGN_PRIVATE_KEY manquant" && exit 1
+        [[ -z "${{ secrets.COSIGN_PASSWORD }}" ]] && echo "COSIGN_PASSWORD manquant" && exit 1
+
+    # Installer Cosign sur le runner
+    - name: Install Cosign
+      run: |
+        curl -LO https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64
+        chmod +x cosign-linux-amd64
+        sudo mv cosign-linux-amd64 /usr/local/bin/cosign
+
     - name: Sign the image with Cosign
       env:
         COSIGN_EXPERIMENTAL: "true"

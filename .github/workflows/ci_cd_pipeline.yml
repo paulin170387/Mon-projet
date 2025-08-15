@@ -18,7 +18,7 @@ jobs:
 
       # Construction de l'image locale (tag correct !)
       - name: Build Docker image
-        run: docker buildx build --tag uts:latest .
+        run: docker buildx build --tag paulin700/uts:latest .
 
       # Ajoutez ici les autres étapes nécessaires (tests, push, déploiement, etc.)
 

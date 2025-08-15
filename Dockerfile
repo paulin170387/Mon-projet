@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Définit le répertoire de travail dans le conteneur
-WORKDIR /code
+WORKDIR /uts
 
 # Copie le fichier de dépendances
 COPY requirements.txt .

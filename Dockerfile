@@ -2,7 +2,7 @@
 FROM python:3.9-slim
 
 # Définit le répertoire de travail dans le conteneur
-WORKDIR /app
+WORKDIR /code
 
 # Copie le fichier de dépendances
 COPY requirements.txt .
@@ -14,4 +14,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY code.py .
 
 # Commande pour exécuter le script au démarrage du conteneur
-CMD ["python", "app.py"]
+CMD ["python", "code.py"]

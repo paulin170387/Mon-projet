@@ -32,7 +32,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-image:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/uts:latest
         
     - name: Sign the image with Cosign
       env:
@@ -40,4 +40,4 @@ jobs:
       run: |
         echo "${{ secrets.COSIGN_PRIVATE_KEY }}" > cosign.key
         echo "${{ secrets.COSIGN_PASSWORD }}" > cosign.password
-        cosign sign --key cosign.key --password $(cat cosign.password) ${{ secrets.DOCKERHUB_USERNAME }}/my-image:latest
+        cosign sign --key cosign.key --password $(cat cosign.password) ${{ secrets.DOCKERHUB_USERNAME }}/uts:latest

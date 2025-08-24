@@ -51,7 +51,7 @@ jobs:
           
           # Récupérer le digest de l'image poussée
           IMAGE_DIGEST=${{ steps.docker_build_and_push.outputs.digest }}
-          IMAGE_TAG="${{ secrets.DOCKERHUB_USERNAME }}/uts1:latest"
+          IMAGE_TAG="${{ secrets.DOCKERHUB_USERNAME }}/uts2:latest"
 
           # Signer l'image en utilisant le digest pour une sécurité maximale
           cosign sign --yes --key cosign.key "${IMAGE_TAG}"@"${IMAGE_DIGEST}"
